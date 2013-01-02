@@ -1,0 +1,485 @@
+<!--
+To change this template, choose Tools | Templates
+and open the template in the editor.
+-->
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Kelia</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="css/bootstrap.min.css">
+        <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
+        <style type="text/css">
+          body {
+            padding-top: 40px;
+            padding-bottom: 40;
+            background-color: #eee;
+          }
+          .sidebar-nav {
+            padding: 9px 0;
+          }
+          .container {
+              background-color: white;
+          }
+        </style>
+    </head>
+    <body>
+        
+    <div class="navbar navbar-inverse navbar-fixed-top">
+        
+      <div class="navbar-inner">
+        <div class="container-fluid">
+            
+          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+          </a>
+            
+          <a class="brand" href="#">Project name</a>
+          
+          <div class="nav-collapse collapse">
+            <p class="navbar-text pull-right">
+              Logged in as <a href="#" class="navbar-link" data-offset-top="100">Username</a>
+            </p>
+            
+            <ul class="nav">
+              <li class="active"><a href="#">Home</a></li>
+              <li><a href="#about">About</a></li>
+              <li><a href="#contact">Contact</a></li>
+            </ul>
+            
+          </div><!--/.nav-collapse -->
+          
+        </div>
+      </div>
+        
+    </div>
+        
+        <div class="container">
+            
+            <div class="row">
+
+                <div class="span2">
+                    <div class="well sidebar-nav" _data-spy="affix" _data-offset-top="40">
+                        <ul class="nav nav-list">
+                            <li class="nav-header">Informations</li>
+                            <li><a href="#info">Fiche signalétique</a></li>
+                            <li><a href="#addresses">Adresses</a></li>
+                            <li><a href="#phones">Coordonnées</a></li>
+                            <li><a href="#contacts">Contacts</a></li>
+                            <li><a href="#convention">Convention précompte</a></li>
+                            <li class="nav-header">Compléments</li>
+                            <li><a href="#collective-accout">Compte collectif</a></li>
+                            <li><a href="#echeances">Echéances</a></li>
+                            <li><a href="#">Déclarations</a></li>
+                            <li><a href="#coll-declared">Coll. déclarées</a></li>
+                            <li><a href="#tickets">Demandes</a></li>
+                            <li><a href="#correspondences">Correspondances</a></li>
+                            <li><a href="#alerts">Alertes</a></li>
+                            <li class="nav-header">Raccourcis</li>
+                            <li><a href="#">Créer tiers</a></li>
+                            <li><a href="#">Créer prospect</a></li>
+                            <li><a href="#">Créer encaissement</a></li>
+                            <li class="nav-header">Dernier accès</li>
+                            <li><a href="#"><i class="icon-user"></i>Pas de raison sociale</a></li>
+                        </ul>
+                    </div>
+                </div>
+            
+            <div class="span10">
+
+                <div class="row">
+                    <div class="span10">
+                        <div class="pull-right" style="margin: 20px 10px 0 0;">
+                             <div class="btn-group">
+                                <a href="#" class="btn btn-small btn-dropdown-toggle" data-toggle="dropdown">
+                                    <i class="icon-cog"></i>
+                                    Actions
+                                    <span class="caret"></span>
+                                </a>
+                                <ul class="dropdown-menu pull-right">
+                                    <li><a href="#">Modifier collectivité</a></li>
+                                    <li><a href="#">Modifier convention</a></li>
+                                    <li><a href="#">Modifier adresse</a></li>
+                                    <li><a href="#">Coord. bancaire</a></li>
+                                    <li><a href="#">Créer une demande</a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        
+                        <h1>
+                            Collectivité service sociale <small>N°030553M</small>
+                        </h1>
+                    </div>
+                </div>
+
+                <div class="row">
+                    <div class="span5">
+                        
+                        <section id="info">
+
+                            <h4>Fiche signalétique</h4>
+                            <dl class="dl-horizontal">
+
+                                <dt>Raison sociale :</dt>
+                                <dd>Service sociale</dd>
+
+                                <dt>Identifiant CNP :</dt>
+                                <dd><strong>030553</strong>M</dd>
+
+                                <dt>Catégorie :</dt>
+                                <dd>Collectivité territoriale</dd>
+
+                                <dt>Type collectivité :</dt>
+                                <dd>Centre de Gestion</dd>
+
+                                <dt>Représentant légal :</dt>
+                                <dd>Monsieur le Directeur</dd>
+
+                                <dt>Pseudo-SIRET :</dt>
+                                <dd>78958264795128</dd>
+
+                            </dl>
+
+                        </section>
+
+                        <section id="addresses">
+
+                            <h5>Adresse principale</h5>
+
+                            <dl class="dl-horizontal">
+                                <dt>Domicile : </dt>
+                                <dd>
+                                    <address>
+                                        10 RUE RUE DES SAPINS<br>
+                                        95120 ERMONT<br>
+                                        FRANCE<br>
+                                    </address>
+                                </dd>
+                            </dl>
+
+                        </section>
+
+                        <section id="phones">
+
+                            <h5>Coordonnées</h5>
+                            <dl class="dl-horizontal">
+                                <dt>Tél. :</dt>
+                                <dd>01 02 03 04 05</dd>
+                                <dt>Fax :</dt>
+                                <dd>01 02 03 04 55</dd>
+                                <dt>Email principal :</dt>
+                                <dd><a href="mailto:nom.prenom@cnp.fr">nom.prenom@cnp.fr</a></dd>
+                            </dl>
+
+                        </section>
+
+                        <section id="contacts">
+
+                            <h4>Contacts</h4>
+
+                            <table class="table table-condensed table-hover">
+                                <tbody>
+                                    <tr>
+                                        <td>
+
+                                        <div>
+                                            <h5>NOMCONTACT</h5>
+                                            <p>
+                                                <small>
+                                                    Rep. lég <span>|</span>
+                                                    Web adm. <span>|</span>
+                                                    Courr.
+                                                </small>
+                                            </p>
+                                        </div>
+
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </section>
+
+                    </div>
+                    <div class="span5">
+
+                        <section id="convention">
+
+                            <h4>Convention précompte</h4>
+
+                            <dl class="dl-horizontal">
+                                <dt>Rôle : </dt>
+                                <dd>Déclarante uniquement</dd>
+
+                                <dt>Réf. DAC : </dt>
+                                <dd>030553M</dd>
+
+                                <dt>Compte Internet : </dt>
+                                <dd>non</dd>
+
+                                <dt>Date d'effet : </dt>
+                                <dd>1 déc. 2012</dd>
+                            </dl>
+
+                            <h5>Modalités déclarations</h5>
+
+                            <dl class="dl-horizontal">
+                                <dt>Mode d'envoi : </dt>
+                                <dd>Site Internet</dd>
+
+                                <dt>Période déclaration : </dt>
+                                <dd>12 déclaration mensuelles</dd>
+
+                                <dt>Prochaine déclaration : </dt>
+                                <dd>1 déc. 2012</dd>
+
+                                <dt>Relance déclarations : </dt>
+                                <dd>oui</dd>
+                            </dl>
+
+                            <h5>Modalités versements</h5>
+
+                            <dl class="dl-horizontal">
+                                <dt>Mode règlement : </dt>
+                                <dd>Chèque</dd>
+
+                                <dt>Période échéance : </dt>
+                                <dd>Mensuelles</dd>
+
+                                <dt>Prochaine échéance : </dt>
+                                <dd>1 janv. 2013</dd>
+
+                                <dt>Relance versements : </dt>
+                                <dd>oui</dd>
+                            </dl>
+
+                        </section>
+
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="span10">
+
+                        <section id="collective-accout">
+
+                            <h4>Compte collectif</h4>
+                            <table class="table table-condensed table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Soldes annuels</th>
+                                        <th>&nbsp;</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <h5><a href="#">Exercice 2012</a></h5>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>446,88 €</div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </section>
+
+                        <section id="echeances">
+                            
+                            <div class="pull-right">
+                                <form class="form-inline">
+                                    <label class="" style="font-size: 80%">
+                                        Trié par
+                                        <select class="input-medium" style="font-size: 100%; padding: 2px; height: auto;">
+                                            <option>exercice</option>
+                                            <option>échéance</option>
+                                            <option>référence</option>
+                                            <option>type</option>
+                                            <option>montant</option>
+                                        </select>
+                                    </label>
+                                    <button class="btn btn-mini" style="line-height: auto;">croissant</button>
+                                    <button class="btn btn-mini">décroissant</button>
+                                </form>
+                            </div>
+                            
+                            <h4 data-toggle="collapse" data-target="#filter">
+                                Echéances
+                                <small>
+                                    <i class="icon-filter" style="opacity: 0.5"></i>
+                                </small>
+                            </h4>
+                            
+                            <div id="filter" class="collapse">
+                                
+                                <form class="form-horizontal">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active">
+                                            <a href="criteria-main" data-toggle="tab">Critères principaux</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="criteria-main">
+                                            <div class="control-group">
+                                                <label class="control-label" for="exercice">Exercice</label>
+                                                <div class="controls">
+                                                    <select name="exercice"><option>(tous)</option></select>
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label" for="echeance">Echéance </label>
+                                                <div class="controls">
+                                                    <select name="echeance"><option>(tous)</option></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                    
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <button class="btn btn-primary"><i class="icon-filter icon-white"></i> Filtrer</button>
+                                            <button class="btn"><i class="icon-trash"></i> Effacer</button>
+                                        </div>
+                                    </div>
+                                    
+                                </form>
+                                
+                            </div>
+                            
+                            <table class="table table-condensed table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Exercice</th>
+                                        <th>Détail</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                2012
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <p>
+                                                    Echéance : <a href="#"><strong>1212</strong></a>
+                                                    <span> - </span>
+                                                    Références : <strong>03055MR1212</strong>
+                                                    <span>-</span>
+                                                    Montant : <strong>446,88 €</strong>
+                                                </p>
+                                                <p>
+                                                    <small>
+                                                        <span class="label label-success">Couverte</span>
+                                                        Régulière 
+                                                        <span>|</span>
+                                                        Pas d'affectation
+                                                    </small>
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td style="width: 10%;">
+                                            <div>
+                                                <a href="#" class="btn btn-mini">
+                                                    <i class="icon-cog"></i>
+                                                    voir
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <div class="pagination pagination-mini pagination-centered">
+                                <form class="form-inline">
+                              <ul>
+                                <li class="disabled"><a href="#">Prev</a></li>
+                                <li class="active"><a href="#">1</a></li>
+                                <li class="disabled"><a href="#">Next</a></li>
+                              </ul>
+                                    <select name="count_per_page" style="line-height: auto; height: auto; margin: 0; padding: 1px; font-size: 90%; width: auto;">
+                                        <option>10 par page</option>
+                                        <option>20 par page</option>
+                                        <option>50 par page</option>
+                                    </select>
+                                </form>
+                            </div>
+                        </section>
+                        
+                        <section id="coll-declared">
+                            
+                            <h4>Collectivités déclarées</h4>
+                        
+                            <table class="table table-condensed table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Collectivité</th>
+                                        <th>Raison sociale</th>
+                                        <th>Nb employés précomptés</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr>
+                                        <td>
+                                            <div>
+                                                <a href="#"><strong>079963S</strong></a>
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                aucune
+                                            </div>
+                                        </td>
+                                        <td>
+                                            <div style="text-align: right;">
+                                                0
+                                            </div>
+                                        </td>
+                                        <td style="width: 10%;">
+                                            <div>
+                                                <a href="#" class="btn btn-mini">
+                                                    <i class="icon-cog"></i>
+                                                    voir
+                                                </a>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+
+                        </section>
+                        
+                        <section id="tickets">
+                            <h4>Demandes</h4>
+                            
+                        </section>
+                        
+                        <section id="correpondences">
+                            <h4>Correspondances</h4>
+                            
+                        </section>
+                        
+                        <section id="alerts">
+                            <h4>Alertes</h4>
+                            
+                        </section>
+                    </div>
+                </div>
+            </div>
+            
+        </div>
+        </div>
+
+        <!-- place here so document load faster -->
+        <script src="js/jquery.js"></script>
+        <script src="js/jquery-ui.js"></script>
+        <script src="js/bootstrap.js"></script>
+
+    </body>
+</html>
