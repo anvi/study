@@ -1,0 +1,266 @@
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <title>Kelia</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="styles.css">
+
+        <!-- place here so document load faster -->
+        <script src="../js/jquery.js"></script>
+        <script src="../js/jquery-ui.js"></script>
+        <script src="../js/bootstrap.js"></script>
+        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+    </head>
+    <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+
+                    <a class="brand" href="#">Project name</a>
+
+                    <div class="nav-collapse collapse">
+                        <p class="navbar-text pull-right">
+                            Logged in as <a href="#" class="navbar-link" data-offset-top="100">Username</a>
+                        </p>
+
+                        <ul class="nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="row">
+
+            <div class="span12">
+
+                <div class="row">
+                    <div class="span12">
+                        <h1>Recherche</h1>
+                    </div>
+                </div>
+                
+                <div class="row" ng-controller="ItemListCtrl">
+                    <div class="span12">
+
+                        <section id="tickets">
+
+                            <script type="text/javascript">
+                            function ItemListCtrl($scope, $http) {
+                                var items = [],
+                                    currentPage = 1,
+                                    itemCount = pageCount = null;
+                                
+                                $http.get('items.json').success(function(data) {
+                                    $scope.initItems(data);
+                                });
+
+                                $scope.initItems = function(data) {
+                                    items = data;
+                                    itemCount = items.length;
+                                    $scope.updatePageCount();
+                                };
+
+                                $scope.updateItems = function() {
+                                    var offset = (currentPage - 1) * $scope.itemCountPerPage;
+                                    
+                                    $scope.items = [];
+                                    angular.forEach(items, function(value, key){
+                                        if (key >= offset && this.length < $scope.itemCountPerPage) {
+                                            this.push(value);
+                                        }
+                                    }, $scope.items);
+                                };
+
+                                $scope.setPage = function(page) {
+                                    if (page < pageCount) {
+                                        currentPage = page;
+                                    } else {
+                                        currentPage = pageCount;
+                                    }
+                                    $scope.updateItems();
+                                };
+
+                                $scope.updatePageCount = function() {
+                                    pageCount =  Math.ceil(itemCount / $scope.itemCountPerPage);
+                                    $scope.setPage(currentPage);
+                                };
+
+                                $scope.orderProp = 'fiscal_year';
+                                $scope.itemCountPerPage = 10;
+                            }
+                            </script>
+
+                            <div class="pull-right">
+                                <form class="form-inline">
+                                    <label class="" style="font-size: 80%">
+                                        Filtrer
+                                        <input ng-model="query" class="input-medium" style="line-height: 9px; font-size: 100%; padding: 2px; height: auto;">
+                                    </label>
+                                    <label class="" style="font-size: 80%">
+                                        Trié par
+                                        <select ng-model="orderProp" class="input-medium" style="font-size: 100%; padding: 2px; height: auto;">
+                                          <option value="fiscal_year">exercice</option>
+                                          <option value="reference">référence</option>
+                                          <option value="amount">montant</option>
+                                        </select>
+                                    </label>
+                                    <div class="btn-group">
+                                    <button class="btn btn-mini" style="line-height: auto;"><i class="icon-chevron-up"></i></button>
+                                    <button class="btn btn-mini"><i class="icon-chevron-down"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <h3 data-toggle="collapse" data-target="#filter-demands" style="cursor: pointer">
+                                <small>
+                                    <i class="icon-filter" style="opacity: 0.5"></i>
+                                </small>
+                                Demandes
+                            </h3>
+
+                            <div id="filter-demands" class="collapse">
+
+                                <form class="form-horizontal">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active">
+                                            <a href="#criteria-main" data-toggle="tab">Critères principaux</a>
+                                        </li>
+                                        <li>
+                                            <a href="#criteria-other" data-toggle="tab">Autres critères</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="criteria-main">
+                                            <div class="control-group">
+                                                <label class="control-label" for="exercice">Exercice</label>
+                                                <div class="controls">
+                                                    <select name="exercice"><option>(tous)</option></select>
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label" for="echeance">Echéance </label>
+                                                <div class="controls">
+                                                    <select name="echeance"><option>(tous)</option></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="criteria-other">
+                                            <div class="control-group">
+                                                <label class="control-label" for="echeance">Echéance </label>
+                                                <div class="controls">
+                                                    <select name="echeance"><option>(tous)</option></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <button class="btn btn-primary"><i class="icon-filter icon-white"></i> Filtrer</button>
+                                            <button class="btn"><i class="icon-trash"></i> Effacer</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                            <table class="table table-condensed table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Exercice</th>
+                                        <th>Détail</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+                                    <tr ng-repeat="item in items | filter:query | orderBy:orderProp" ng-class-even="'even'">
+                                        <td>
+                                            <div>{{item.fiscal_year}}</div>
+                                        </td>
+                                        <td>
+                                            <div>
+                                                <p>
+                                                    Echéance : <a href="#"><strong>{{item.term}}</strong></a>
+                                                    <span> - </span>
+                                                    Références : <strong>{{item.reference}}</strong>
+                                                    <span>-</span>
+                                                    Montant : <strong>{{item.amount}}</strong>
+                                                </p>
+                                                <p>
+                                                    <small>
+                                                        <span class="label label-success">{{item.status}}</span>
+                                                        {{item.detail}}
+                                                    </small>
+                                                </p>
+                                            </div>
+                                        </td>
+                                        <td style="width: 10%;">
+                                            <div>
+                                                <div class="btn-group">
+                                                    <a href="#" class="btn btn-mini">
+                                                        <i class="icon-cog"></i>
+                                                        voir
+                                                    </a>
+                                                    <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
+                                                      <span class="caret"></span>
+                                                    </button>
+                                                    <ul class="dropdown-menu pull-right">
+                                                        <li><a href="#tickets">modifier</a></li>
+                                                    </ul>
+                                                </div>
+                                            </div>
+                                        </td>
+                                    </tr>
+                                </tbody>
+                            </table>
+                            <form class="form-inline">
+                                <div class="pagination pagination-mini pagination-centered">
+                                  <ul>
+                                    <li class="disabled"><a href="#">Prem.</a></li>
+                                    <li class="disabled"><a href="#">Préc.</a></li>
+                                    <li class="active"><a href="#" ng-click="setPage(1)">1</a></li>
+                                    <li class=""><a href="#" ng-click="setPage(2)">2</a></li>
+                                    <li class=""><a href="#" ng-click="setPage(3)">3</a></li>
+                                    <li class=""><a href="#" ng-click="setPage(4)">4</a></li>
+                                    <li class="disabled"><a href="#">...</a></li>
+                                    <li class=""><a href="#">25</a></li>
+                                    <li class=""><a href="#">Suiv.</a></li>
+                                    <li class=""><a href="#">Dern.</a></li>
+                                    <li>
+                                        &nbsp; afficher
+                                        <select name="count_per_page" ng-model="itemCountPerPage" ng-change="updatePageCount()" style="line-height: auto; height: auto; margin: 0; padding: 1px; font-size: 90%; width: auto;">
+                                            <option value="10">10 par page</option>
+                                            <option value="20">20 par page</option>
+                                            <option value="50">50 par page</option>
+                                        </select>
+                                    </li>
+                                  </ul>
+                                </div>
+                            </form>
+
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+    </body>
+</html>
