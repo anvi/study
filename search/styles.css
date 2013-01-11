@@ -1,0 +1,36 @@
+body {
+    padding-top: 40px;
+    background-color: #eee;
+}
+.sidebar-nav {
+    padding: 9px 0;
+}
+.container {
+    background-color: white;
+}
+h3 {
+    color: #006dcc;
+    border-bottom: 1px #006dcc dotted;
+}
+h4 {
+    color: #006dcc;
+}
+dt {
+    font-size: 13px;
+    color: #666;
+    font-weight: normal;
+}
+.btn-mini {
+    line-height: 13px;
+}
+th {
+    color: #666;
+    font-size: 90%;
+}
+.modal.large {
+    width: 800px;
+    margin-left: -400px;
+}
+tr.even {
+    background-color: #eee;
+}
