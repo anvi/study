@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html ng-app>
+    <head>
+        <title>Kelia</title>
+        <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="../css/bootstrap.min.css">
+        <link rel="stylesheet" href="../css/bootstrap-responsive.min.css">
+        <link rel="stylesheet" href="styles.css">
+
+        <!-- place here so document load faster -->
+        <script src="../js/jquery.js"></script>
+        <script src="../js/jquery-ui.js"></script>
+        <script src="../js/bootstrap.js"></script>
+        <script src="lib/angular/angular.js"></script>
+        <script src="js/lib/pager.js"></script>
+        <script src="js/controllers.js"></script>
+    </head>
+    <body>
+
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
+
+                    <a class="brand" href="#">Project name</a>
+
+                    <div class="nav-collapse collapse">
+                        <p class="navbar-text pull-right">
+                            Logged in as <a href="#" class="navbar-link" data-offset-top="100">Username</a>
+                        </p>
+
+                        <ul class="nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
+
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
+        </div>
+
+        <div class="container">
+
+            <div class="row">
+
+            <div class="span12">
+
+                <div class="row">
+                    <div class="span12">
+                        <h1>Recherche</h1>
+                    </div>
+                </div>
+                
+                <div class="row" ng-controller="ItemListCtrl">
+                    <div class="span12">
+
+                        <section id="tickets">
+
+                            <div class="pull-right">
+                                <form class="form-inline">
+                                    <label class="" style="font-size: 80%">
+                                        Filtrer
+                                        <input ng-model="query" class="input-medium" style="line-height: 9px; font-size: 100%; padding: 2px; height: auto;">
+                                    </label>
+                                    <label class="" style="font-size: 80%">
+                                        Trié par
+                                        <select ng-model="orderProp" class="input-medium" style="font-size: 100%; padding: 2px; height: auto;">
+                                          <option value="fiscal_year">exercice</option>
+                                          <option value="reference">référence</option>
+                                          <option value="amount">montant</option>
+                                        </select>
+                                    </label>
+                                    <div class="btn-group">
+                                    <button class="btn btn-mini" style="line-height: auto;"><i class="icon-chevron-up"></i></button>
+                                    <button class="btn btn-mini"><i class="icon-chevron-down"></i></button>
+                                    </div>
+                                </form>
+                            </div>
+
+                            <h3 data-toggle="collapse" data-target="#filter-demands" style="cursor: pointer">
+                                <small>
+                                    <i class="icon-filter" style="opacity: 0.5"></i>
+                                </small>
+                                Demandes
+                            </h3>
+
+                            <div id="filter-demands" class="collapse">
+
+                                <form class="form-horizontal">
+                                    <ul class="nav nav-tabs">
+                                        <li class="active">
+                                            <a href="#criteria-main" data-toggle="tab">Critères principaux</a>
+                                        </li>
+                                        <li>
+                                            <a href="#criteria-other" data-toggle="tab">Autres critères</a>
+                                        </li>
+                                    </ul>
+                                    <div class="tab-content">
+                                        <div class="tab-pane active" id="criteria-main">
+                                            <div class="control-group">
+                                                <label class="control-label" for="exercice">Exercice</label>
+                                                <div class="controls">
+                                                    <select name="exercice"><option>(tous)</option></select>
+                                                </div>
+                                            </div>
+                                            <div class="control-group">
+                                                <label class="control-label" for="echeance">Echéance </label>
+                                                <div class="controls">
+                                                    <select name="echeance"><option>(tous)</option></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                        <div class="tab-pane" id="criteria-other">
+                                            <div class="control-group">
+                                                <label class="control-label" for="echeance">Echéance </label>
+                                                <div class="controls">
+                                                    <select name="echeance"><option>(tous)</option></select>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                    <div class="control-group">
+                                        <div class="controls">
+                                            <button class="btn btn-primary"><i class="icon-filter icon-white"></i> Filtrer</button>
+                                            <button class="btn"><i class="icon-trash"></i> Effacer</button>
+                                        </div>
+                                    </div>
+
+                                </form>
+
+                            </div>
+
+                            <table class="table table-condensed table-hover">
+                                <thead>
+                                    <tr>
+                                        <th>Exercice</th>
+                                        <th>Détail</th>
+                                        <th>Action</th>
+                                    </tr>
+                                </thead>
+                                <tbody ng-include src="'templates/items.html'"></tbody>
+                            </table>
+                            <form class="form-inline">
+                                <div class="pagination pagination-mini pagination-centered">
+                                  <ul>
+                                    <li ng-class="{disabled: pages.current == 0}"><a href="#" ng-click="pages.first()">Prem.</a></li>
+                                    <li ng-class="{disabled: pages.current == 0}"><a href="#" ng-click="pages.prev()">Préc.</a></li>
+                                    <li ng-repeat="n in pages.list()" ng-click="pages.current = n"><a href="#">{{n + 1}}</a></li>
+                                    <li ng-class="{disabled: pages.current == pages.pageCount - 1}"><a href="#" ng-click="pages.next()">Suiv.</a></li>
+                                    <li ng-class="{disabled: pages.current == pages.pageCount - 1}"><a href="#" ng-click="pages.last()">Dern.</a></li>
+                                    <li>
+                                        &nbsp; afficher
+                                        <select name="count_per_page" ng-model="pages.itemCountPerPage" style="line-height: auto; height: auto; margin: 0; padding: 1px; font-size: 90%; width: auto;">
+                                            <option value="10">10 par page</option>
+                                            <option value="20">20 par page</option>
+                                            <option value="50">50 par page</option>
+                                        </select>
+                                    </li>
+                                  </ul>
+                                </div>
+                            </form>
+
+                        </section>
+                    </div>
+                </div>
+            </div>
+
+        </div>
+        </div>
+
+    </body>
+</html>

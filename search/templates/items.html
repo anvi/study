@@ -1,0 +1,38 @@
+<tr ng-repeat="item in pages.content(pages.current) | filter:query | orderBy:orderProp" ng-class-even="'even'">
+    <td>
+        <div>{{item.fiscal_year}}</div>
+    </td>
+    <td>
+        <div>
+            <p>
+                Echéance : <a href="#"><strong>{{item.term}}</strong></a>
+                <span> - </span>
+                Références : <strong>{{item.reference}}</strong>
+                <span>-</span>
+                Montant : <strong>{{item.amount}}</strong>
+            </p>
+            <p>
+                <small>
+                    <span class="label label-success">{{item.status}}</span>
+                    {{item.detail}}
+                </small>
+            </p>
+        </div>
+    </td>
+    <td style="width: 10%;">
+        <div>
+            <div class="btn-group">
+                <a href="#" class="btn btn-mini">
+                    <i class="icon-cog"></i>
+                    voir
+                </a>
+                <button class="btn btn-mini dropdown-toggle" data-toggle="dropdown">
+                  <span class="caret"></span>
+                </button>
+                <ul class="dropdown-menu pull-right">
+                    <li><a href="#tickets">modifier</a></li>
+                </ul>
+            </div>
+        </div>
+    </td>
+</tr>

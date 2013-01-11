@@ -1,7 +1,3 @@
-<!--
-To change this template, choose Tools | Templates
-and open the template in the editor.
--->
 <!DOCTYPE html>
 <html>
     <head>
@@ -10,74 +6,69 @@ and open the template in the editor.
         <link rel="stylesheet" href="css/bootstrap.min.css">
         <link rel="stylesheet" href="css/bootstrap-responsive.min.css">
         <style type="text/css">
-          body {
+        body {
             padding-top: 40px;
-            padding-bottom: 40;
             background-color: #eee;
-          }
-          .sidebar-nav {
+        }
+        .sidebar-nav {
             padding: 9px 0;
-          }
-          .container {
-              background-color: white;
-          }
-          h3 {
-              color: #006dcc;
-              border-bottom: 1px #006dcc dotted;
-          }
-          h4 {
-              color: #006dcc;
-          }
-          dt {
-              font-size: 13px;
-              color: #666;
-              font-weight: normal;
-          }
-          .btn-mini {
-              line-height: 13px;
-          }
-          th {
-              color: #666;
-              font-size: 90%;
-          }
-          .modal.large {
-              width: 800px;
-              margin-left: -400px;
-          }
+        }
+        .container {
+            background-color: white;
+        }
+        h3 {
+            color: #006dcc;
+            border-bottom: 1px #006dcc dotted;
+        }
+        h4 {
+            color: #006dcc;
+        }
+        dt {
+            font-size: 13px;
+            color: #666;
+            font-weight: normal;
+        }
+        .btn-mini {
+            line-height: 13px;
+        }
+        th {
+            color: #666;
+            font-size: 90%;
+        }
+        .modal.large {
+            width: 800px;
+            margin-left: -400px;
+        }
         </style>
     </head>
     <body>
 
-    <div class="navbar navbar-inverse navbar-fixed-top">
+        <div class="navbar navbar-inverse navbar-fixed-top">
+            <div class="navbar-inner">
+                <div class="container-fluid">
+                    <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                        <span class="icon-bar"></span>
+                    </a>
 
-      <div class="navbar-inner">
-        <div class="container-fluid">
+                    <a class="brand" href="#">Project name</a>
 
-          <a class="btn btn-navbar" data-toggle="collapse" data-target=".nav-collapse">
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-            <span class="icon-bar"></span>
-          </a>
+                    <div class="nav-collapse collapse">
+                        <p class="navbar-text pull-right">
+                            Logged in as <a href="#" class="navbar-link" data-offset-top="100">Username</a>
+                        </p>
 
-          <a class="brand" href="#">Project name</a>
+                        <ul class="nav">
+                            <li class="active"><a href="#">Home</a></li>
+                            <li><a href="#about">About</a></li>
+                            <li><a href="#contact">Contact</a></li>
+                        </ul>
 
-          <div class="nav-collapse collapse">
-            <p class="navbar-text pull-right">
-              Logged in as <a href="#" class="navbar-link" data-offset-top="100">Username</a>
-            </p>
-
-            <ul class="nav">
-              <li class="active"><a href="#">Home</a></li>
-              <li><a href="#about">About</a></li>
-              <li><a href="#contact">Contact</a></li>
-            </ul>
-
-          </div><!--/.nav-collapse -->
-
+                    </div><!--/.nav-collapse -->
+                </div>
+            </div>
         </div>
-      </div>
-
-    </div>
 
         <div class="container">
 
@@ -144,7 +135,6 @@ and open the template in the editor.
 
                             <h3>Fiche signalétique</h3>
                             <dl class="dl-horizontal">
-
                                 <dt>Raison sociale :</dt>
                                 <dd>Service sociale</dd>
 
@@ -162,7 +152,6 @@ and open the template in the editor.
 
                                 <dt>Pseudo-SIRET :</dt>
                                 <dd>78958264795128</dd>
-
                             </dl>
 
                         </section>
@@ -842,14 +831,14 @@ and open the template in the editor.
         <div id="select-fund-modal" class="modal hide fade large">
 
             <div class="modal-header">
-              <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-              <h4>Sélection d'un support</h4>
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+                <h4>Sélection d'un support</h4>
             </div>
 
             <div class="modal-body"></div>
 
             <div class="modal-footer">
-              <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
+                <button class="btn" data-dismiss="modal" aria-hidden="true">Fermer</button>
             </div>
         </div>
 
