@@ -42,6 +42,11 @@ afterEach(function() {
 });
 
 describe('ItemListCtrl', function(){
+    it('should initialize orderProp', function() {
+        expect(scope.orderProp).toBeDefined();
+        expect(scope.orderProp).toBe('fiscal_year');
+    });
+
     it('should have items', function() {
         expect(scope.items).toBeDefined();
         expect(scope.items.length).toBe(2);

@@ -30,6 +30,11 @@ afterEach(function() {
 });
 
 describe('Pager', function(){
+    it('should initialize properties', function() {
+        expect(pager.current).toBe(0);
+        expect(pager.itemCountPerPage).toBe(10);
+    });
+
     it('should page have items', function() {
         expect(pager.content(0).length).toBe(3);
         expect(pager.content(1).length).toBe(3);
