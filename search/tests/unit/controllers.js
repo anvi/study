@@ -43,12 +43,12 @@ afterEach(function() {
 
 describe('ItemListCtrl', function(){
     it('should have items', function() {
-         expect(scope.items).toBeDefined();
-         expect(scope.items.length).toBe(2);
+        expect(scope.items).toBeDefined();
+        expect(scope.items.length).toBe(2);
     });
 
     it('should have pager', function() {
-         expect(scope.pages).toBeDefined();
-         expect(scope.pages instanceof Util.Pager).toBeTruthy();
+        expect(scope.pages).toBeDefined();
+        expect(scope.pages instanceof Util.Pager).toBeTruthy();
     });
 });

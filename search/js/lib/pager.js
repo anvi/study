@@ -31,7 +31,6 @@
 
             if (index != self.current) {
                 self.current = index;
-                return null;
             }
             
             var start = index * self.itemCountPerPage,
