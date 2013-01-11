@@ -11,7 +11,8 @@
         <script src="../js/jquery.js"></script>
         <script src="../js/jquery-ui.js"></script>
         <script src="../js/bootstrap.js"></script>
-        <script src="http://ajax.googleapis.com/ajax/libs/angularjs/1.0.3/angular.min.js"></script>
+        <script src="lib/angular/angular.js"></script>
+        <script src="js/lib/pager.js"></script>
         <script src="js/controllers.js"></script>
     </head>
     <body>
@@ -148,19 +149,14 @@
                             <form class="form-inline">
                                 <div class="pagination pagination-mini pagination-centered">
                                   <ul>
-                                    <li class="disabled"><a href="#">Prem.</a></li>
-                                    <li class="disabled"><a href="#">Préc.</a></li>
-                                    <li class="active"><a href="#" ng-click="setPage(1)">1</a></li>
-                                    <li class=""><a href="#" ng-click="setPage(2)">2</a></li>
-                                    <li class=""><a href="#" ng-click="setPage(3)">3</a></li>
-                                    <li class=""><a href="#" ng-click="setPage(4)">4</a></li>
-                                    <li class="disabled"><a href="#">...</a></li>
-                                    <li class=""><a href="#">25</a></li>
-                                    <li class=""><a href="#">Suiv.</a></li>
-                                    <li class=""><a href="#">Dern.</a></li>
+                                    <li ng-class="{disabled: pages.current == 0}"><a href="#" ng-click="pages.first()">Prem.</a></li>
+                                    <li ng-class="{disabled: pages.current == 0}"><a href="#" ng-click="pages.prev()">Préc.</a></li>
+                                    <li ng-repeat="n in pages.list()" ng-click="pages.current = n"><a href="#">{{n + 1}}</a></li>
+                                    <li ng-class="{disabled: pages.current == pages.pageCount - 1}"><a href="#" ng-click="pages.next()">Suiv.</a></li>
+                                    <li ng-class="{disabled: pages.current == pages.pageCount - 1}"><a href="#" ng-click="pages.last()">Dern.</a></li>
                                     <li>
                                         &nbsp; afficher
-                                        <select name="count_per_page" ng-model="itemCountPerPage" ng-change="updatePageCount()" style="line-height: auto; height: auto; margin: 0; padding: 1px; font-size: 90%; width: auto;">
+                                        <select name="count_per_page" ng-model="pages.itemCountPerPage" style="line-height: auto; height: auto; margin: 0; padding: 1px; font-size: 90%; width: auto;">
                                             <option value="10">10 par page</option>
                                             <option value="20">20 par page</option>
                                             <option value="50">50 par page</option>

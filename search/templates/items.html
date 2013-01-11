@@ -1,4 +1,4 @@
-<tr ng-repeat="item in items | filter:query | orderBy:orderProp" ng-class-even="'even'">
+<tr ng-repeat="item in pages.content(pages.current) | filter:query | orderBy:orderProp" ng-class-even="'even'">
     <td>
         <div>{{item.fiscal_year}}</div>
     </td>
